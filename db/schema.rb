@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_232500) do
+ActiveRecord::Schema.define(version: 2020_02_29_234919) do
 
   create_table "scripts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_232500) do
     t.string "title"
     t.string "author"
     t.string "last_edited"
+    t.string "email"
   end
 
 end
