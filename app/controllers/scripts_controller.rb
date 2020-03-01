@@ -15,9 +15,15 @@ class ScriptsController < ApplicationController
 
   end
 
+  def destroy
+    @script = Script.find(params[:id])
+    @script.destroy
+    flash[:notice] = "Script #{@script.title} was  deleted."
+    redirect_to scripts_path
+  end
+
   def new
     # renders new template
-
   end
 
   def create
@@ -25,5 +31,16 @@ class ScriptsController < ApplicationController
     @script = Script.add_new(script_params,dummy_email)
     flash[:notice] = "#{@script.title} was succesfully created."
     redirect_to scripts_path
+  end
+
+  def edit
+    @script = Script.find params[:id]
+  end
+
+  def update
+    @script = Script.find(params[:id])
+    @script.update_attributes!(script_params)
+    flash[:notice] = "#{@script.title} was successfully updated."
+    redirect_to script_path(@script)
   end
 end
