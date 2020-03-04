@@ -1,4 +1,4 @@
-Feature: keep a collection of scripts
+Feature: keep and display a collection of scripts on a dashboard
 
   As an amateur filmmaker
   So that I can start writing my script
@@ -18,6 +18,7 @@ Feature: keep a collection of scripts
     When I click "Save Changes"
     Then I should see "Script Title"
     And I should see "Author Name"
+  #And I should see a new file in the amazon storage
 
   Scenario: delete an existing script
     When I click "Edit Fa and the Bois"
@@ -25,7 +26,7 @@ Feature: keep a collection of scripts
     Then I should be on the scripts page
     And I should not see "Fa and the bois"
 
-  Scenario: update an existing script
+  Scenario: rename an existing script
     When I click "Edit Fa and the Bois"
     And I click "Edit"
     And I enter the Author "Allan"

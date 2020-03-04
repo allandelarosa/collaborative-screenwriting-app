@@ -1,5 +1,11 @@
+!!!
+%html
+  %head
+    = javascript_include_tag "https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"
+
 .content This is where the application goes
 .content_two this would be the text editor/ story boards for script
+.content_three{:id => "editorjs"}.
 = button_to 'Edit', edit_script_path(@script),:method => :get
 = button_to 'Delete', script_path(@script),:method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
 = button_to 'Back', scripts_path, :method => :get
