@@ -2,6 +2,7 @@
 %html
   %head
     = javascript_include_tag "https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"
+    = javascript_include_tag "https://cdn.jsdelivr.net/npm/@editorjs/header@latest"
 %section.editor_container
   %h1=@script.title
   %h6=@script.author
@@ -10,4 +11,6 @@
   = button_to 'Back', scripts_path, :method => :get
   %br
   %section.editor_component{:id => "editorjs"}
+  = link_to "save page", "", :id => "save_file"
+  -#%a{href: '', onclick: 'save_file(); return false;'} my link
 = javascript_pack_tag 'editor_config'
