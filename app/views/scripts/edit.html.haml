@@ -1,13 +1,13 @@
 -# edit.html.haml using partial
+-#   = submit_tag 'Refresh'
+%div.container
+  %h2 Edit Existing Script
+  = form_tag script_path(@script), :method => :put do
 
-%h2 Edit Existing Script
+    = label :script, :title, 'Title'
+    = text_field :script, 'title'
 
-= form_tag script_path(@script), :method => :put do
+    = label :script, :author, 'Author'
+    = text_field :script, 'author'
 
-  = label :script, :title, 'Title'
-  = text_field :script, 'title'
-
-  = label :script, :author, 'Author'
-  = text_field :script, 'author'
-
-  = submit_tag 'Update Script Info', :class => 'btn btn-primary'
+    = submit_tag 'Update Script Info', :class => 'btn btn-primary'

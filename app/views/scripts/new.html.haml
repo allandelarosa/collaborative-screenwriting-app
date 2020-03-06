@@ -1,11 +1,12 @@
-%h2 Create New Script
+%div.container
+  %h2 Create New Script
 
-= form_tag scripts_path do
+  = form_tag scripts_path do
 
-  = label :script, :title, 'Title'
-  = text_field :script, 'title'
+    = label :script, :title, 'Title'
+    = text_field :script, 'title'
 
-  = label :script, :author, 'Author'
-  = text_field :script, 'author'
+    = label :script, :author, 'Author'
+    = text_field :script, 'author'
 
-  = submit_tag 'Save Changes', :class => 'btn btn-primary'
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'

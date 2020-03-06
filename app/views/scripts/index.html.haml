@@ -1,5 +1,5 @@
 -#  This file is app/views/movies/index.html.haml
-%h2 My Scripts
+
 
 -# = form_tag movies_path, :method => :get do
 -#   Include:
@@ -7,18 +7,20 @@
 -#     = rating
 -#     = check_box_tag "ratings[#{rating}]", "1", @selected.include?("#{rating}")
 -#   = submit_tag 'Refresh'
+%div.container
 
-%table#movies.table.table-striped.col-md-12
-  %thead
-    %tr
-      %th Title,
-      %th Author,
-      %th Edit
-  %tbody
-    - @scripts.each do |script|
+  %h2 My Scripts
+  %table#movies.table.table-striped.col-md-12
+    %thead
       %tr
-        %td= script.title
-        %td= script.author
-        %td= link_to "Edit #{script.title}", script_path(script)
+        %th Title,
+        %th Author,
+        %th Edit
+    %tbody
+      - @scripts.each do |script|
+        %tr
+          %td= script.title
+          %td= script.author
+          %td= link_to "Edit #{script.title}", script_path(script)
 
-= link_to 'Add new script', new_script_path
+  = link_to 'Add new script', new_script_path

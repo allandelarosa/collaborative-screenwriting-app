@@ -2,19 +2,51 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+html {
+    height: 100%;
+}
+
 body {
     //background: rgb(23,35,46);
+    height:100%;
+    overflow-y:hidden;
 }
 
 .editor_container {
     background: #eef5fa;
-   // background: rgb(23,35,46);
-    height:1000px;
+    background: rgb(23,35,46);
+    background: rgb(23,35,46);
+    width: 100%;
+    height: 100vh;
+
+}
+
+.editor_title_bar {
+    background: rgb(44,59,72);
+    width: 100%;
+    color: white;
+    padding: 5px 40px 20px 40px;
+    border-bottom: solid black;
+    border-width: 1px;
 }
 
 #editorjs {
     background: white;
-    min-height: 60%;
-    width:738px;
-    margin-left:200px;
+    width: 836px;
+    height: 1056px;
+    display: inline-block;
+    border-radius: 10px;
+    //overflow-x: hidden;
+    text-align: left;
+
+}
+
+.mybutton {
+    float: right;
+    margin: 10px;
+}
+
+.editor_parent {
+    text-align: center;
+    overflow-y:hidden;
 }

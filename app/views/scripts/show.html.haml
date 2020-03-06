@@ -4,14 +4,16 @@
     = javascript_include_tag "https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"
     = javascript_include_tag "https://cdn.jsdelivr.net/npm/@editorjs/header@latest"
 %section.editor_container
-  %h1=@script.title
-  %h6=@script.author
-  = button_to 'Edit', edit_script_path(@script),:method => :get
-  = button_to 'Delete', script_path(@script),:method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
-  = button_to 'Back', scripts_path, :method => :get
+  %div.editor_title_bar
+
+    = button_to 'Edit', edit_script_path(@script),:method => :get, :class => 'btn btn-light mybutton'
+    = button_to 'Delete', script_path(@script),:method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-light mybutton'
+    = button_to 'Back', scripts_path, :method => :get, :class => 'btn btn-light mybutton'
+    = button_to "Save", "", :id => "save_file", :class => 'btn btn-light mybutton'
+    %h1=@script.title
+    %h6="By: #{@script.author}"
   %br
-  %section.editor_component{:id => "editorjs"}
-  = link_to "save page", "", :id => "save_file"
+  %section.editor_parent
+    %section.editor_component{:id => "editorjs"}
   -#%a{href: '', onclick: 'save_file(); return false;'} my link
 = javascript_pack_tag 'editor_config'
-= text_field_tag "test", ""
