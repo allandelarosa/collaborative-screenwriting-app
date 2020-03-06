@@ -9,8 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 // require("packs/editor")
 // require("packs/editor_config")
-require("jquery_ujs").start()
-require("jquery").start()
+// require("jquery_ujs").start()
+// require("jquery").start()
 //= require jquery_ujs
 
 
