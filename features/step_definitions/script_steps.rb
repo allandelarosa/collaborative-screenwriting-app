@@ -24,6 +24,13 @@ When /I click "(.*)"/ do |button|
     click_on button
 end
 
+When /I type "(.*)"/ do |text|
+    # element = find('#editorjs').click
+    #page.find('#test').native.send_keys(:left).perform
+    # send_keys(element, "d")
+    (find('#editorjs').click).send_keys text
+end
+
 Then /I should be on the (.*) page/ do |page|
     current_path = URI.parse(current_url).path
     assert "/#{page}".eql? current_path

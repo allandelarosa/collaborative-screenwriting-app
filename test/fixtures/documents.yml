@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  script_id: MyString
+  timestamp: 1
+  order: 1
+  type: 
+  text: MyText
+
+two:
+  script_id: MyString
+  timestamp: 1
+  order: 1
+  type: 
+  text: MyText

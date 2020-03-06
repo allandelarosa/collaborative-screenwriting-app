@@ -8,6 +8,10 @@
 //     holder: 'editorjs'
 // });
 
+
+// import Rails from 'rails-ujs'
+// Rails.start()
+
 const editor = new EditorJS({
     /**
      * Id of Element that should contain the Editor
@@ -32,39 +36,47 @@ const editor = new EditorJS({
     data: {}
 });
 
-function save_file(e) {
 
+function ajax_test() {
 
-    editor.save().then((outputData) => {
-        console.log('Article data: ', outputData)
-    }).catch((error) => {
-        console.log('Saving failed: ', error)
-    });
+    $.ajax({
+        type: "POST",
+        url: "/documents",
+        data: "temp",
+        beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
+        success: function (data, textStatus, jqXHR) { console.log("yep") },
+        error: function (jqXHR, textStatus, errorThrown) { console.log("nope") }
+    })
+
+    // $.ajax({
+    //     type: "POST",
+    //     // beforeSend: function (request) {
+    //     //     request.setRequestHeader("Authority", authorizationToken);
+    //     // },
+    //     url: "/documents",
+    //     data: "json=" + escape(JSON.stringify(createRequestObject)),
+    //     processData: false,
+    //     success: function (msg) {
+    //         $("#results").append("The result =" + StringifyPretty(msg));
+    //     }
+    // });
 }
 
+function save_file(e) {
+    console.log(e)
+    ajax_test()
 
-document.body.addEventListener('click', function (e) {
+    // editor.save().then((outputData) => {
+    //     console.log('Article data: ', outputData)
+    // }).catch((error) => {
+    //     console.log('Saving failed: ', error)
+    // });
+}
+
+document.getElementById('save_file').addEventListener('click', function (e) {
     e.preventDefault()
-    console.log("im clicking in general")
-    var target = e.target || e.srcElement;
-
-    if (target.tagName.toLowerCase() !== 'a') {
-        return e;//not clicked on link
-    }
-
-    //  console.log(target.id)
-    if (target.id == "save_file") {
-        return save_file.apply(target, [e]);
-    }
-
-}, false);
+    save_file()
+})
 
 
 console.log(editor)
-try {
-    editor.isReady;
-    console.log('Editor.js is ready to worddk!')
-    /** Do anything you need after editor initialization */
-} catch (reason) {
-    console.log(`Editor.js initialization failed because of ${reason}`)
-}
