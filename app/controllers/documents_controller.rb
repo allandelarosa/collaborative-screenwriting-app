@@ -10,7 +10,8 @@ class DocumentsController < ApplicationController
         @doc = Document.find_by(script_id:params[:script_id])
         #print(@doc.id)
        #@parsed_blocks = params[:blocks].delete! '\\'
-        @doc.update!(blocks:params[:blocks],time:params[:time],version:params[:version])
+       # @doc.update!(blocks:params[:blocks],time:params[:time],version:params[:version])
+        @doc.update!(json:params[:json].to_json)
         # print("blocks\n")
         # print(:blocks)
         # print("blocks\n")
@@ -27,12 +28,15 @@ class DocumentsController < ApplicationController
     def index
         print(params[:script_id])
         #@doc = Document.find(params[:script_id])
-        if Document.exists?(params[:script_id])
+        if Document.exists?(:script_id => params[:script_id])
             print("this is a exisitng script")
-            @doc = Document.find(params[:script_id])
+            @doc = Document.find_by(:script_id => params[:script_id])
         else
             print("this is an new script")
-            @doc = Document.create!(:script_id => params[:script_id], :blocks => "", :time => 1, :version => " ")
+            # print(params[])
+            #@doc = Document.create!(:script_id => params[:script_id], :blocks => "", :time => 1, :version => " ")
+            @doc = Document.create!(:script_id => params[:script_id], :json => "")
+
 
         end
       render( :json => @doc)
