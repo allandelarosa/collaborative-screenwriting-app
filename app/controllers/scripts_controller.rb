@@ -10,9 +10,8 @@ class ScriptsController < ApplicationController
   end
 
   def show
-  script_id = params[:id]
-  @script = Script.find(script_id)
-
+    script_id = params[:id]
+    @script = Script.find(script_id)
   end
 
   def destroy

@@ -4,7 +4,7 @@ let pathname = window.location.pathname + "/documents/"
 // import Rails from 'rails-ujs'
 // Rails.start()
 
-const editor = new EditorJS({
+let editor = new EditorJS({
     /**
      * Id of Element that should contain the Editor
      */
@@ -14,18 +14,18 @@ const editor = new EditorJS({
      * Available Tools list.
      * Pass Tool's class or Settings object for each Tool you want to use
      */
-    tools: {
-        header: {
-            class: Header,
-            inlineToolbar: true
-        },
-        // ...
-    },
+    // tools: {
+    //     header: {
+    //         class: Header,
+    //         inlineToolbar: true
+    //     },
+    //     // ...
+    // },
 
     /**
      * Previously saved data that should be rendered
      */
-    data: {}
+    data: getData()
 });
 //console.log(author)
 
@@ -100,15 +100,26 @@ document.getElementById('save_file').addEventListener('click', function (e) {
 })
 
 //get saved document
-$.ajax({
-    type: "GET",
-    url: pathname,
-    beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
-    error: function (jqXHR, textStatus, errorThrown) { console.log("nope") },
-    success: function (data, textStatus, jqXHR) {
-        console.log(data)
+function getData() {
+    $.ajax({
+        type: "GET",
+        url: pathname,
+        beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
+        error: function (jqXHR, textStatus, errorThrown) { console.log(errorThrown) },
+        success: function (data, textStatus, jqXHR) {
+            console.log(data)
+            //console.log(JSON.parse(data.blocks))
+            console.log(data.blocks)
+            editor.data = data
+            let eData = data
+            delete eData.script_id
+            delete eData.id
+            delete eData.updated_at
+            delete eData.created_at
+            console.log(eData)
+            return eData
 
+        }
 
-    }
-
-})
+    })
+}
