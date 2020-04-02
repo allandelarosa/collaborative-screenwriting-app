@@ -16,4 +16,7 @@
   %section.editor_parent
     %section.editor_component{:id => "editorjs"}
   -#%a{href: '', onclick: 'save_file(); return false;'} my link
+  -# :javascript
+  -#     var author = #{@script.author}
+= javascript_pack_tag 'test'
 = javascript_pack_tag 'editor_config'

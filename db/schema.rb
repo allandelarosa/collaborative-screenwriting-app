@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_004406) do
+ActiveRecord::Schema.define(version: 2020_04_02_001811) do
 
   create_table "documents", force: :cascade do |t|
     t.string "script_id"
-    t.integer "timestamp"
-    t.integer "order"
-    t.string "type"
-    t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "time"
+    t.text "blocks"
+    t.string "version"
   end
 
   create_table "scripts", force: :cascade do |t|
