@@ -17,14 +17,17 @@ class Script < ApplicationRecord
         case secs
         when 1..3599
             ans = (secs/60).round()
-            time = "#{ans} minutes"
+            time = "#{ans} minutes ago"
         when 3600..86400
             ans = (secs/60/60).round()
-            time = "#{ans} hours"
+            time = "#{ans} hours ago"
         else
             ans = self.last_edited
-
         end
         time
+    end
+
+    def getTimeInSecs
+        Time.now() - self.updated_at
     end
 end

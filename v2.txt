@@ -1,0 +1,12 @@
+1) Saving script content
+   -pressing save will persist the contents of the script
+   -update scripts table with last_edited whenever you save 
+2) Users and authentication
+    -each users has their own set of scripts
+3) Cucumber Tests
+   - Users: creat acount, login, 
+   - Navigate: 
+4) Dashboard Updates
+   - Added last saved column
+   - Documents sort by last saved
+

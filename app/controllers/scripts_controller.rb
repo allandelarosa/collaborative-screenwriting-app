@@ -9,7 +9,7 @@ class ScriptsController < ApplicationController
   def index
     dummy_email = 'ajd2215' #this will be handled by session[] when user auth is up
     @scripts = Script.for_user(dummy_email)
-    #@time = Time.now() - @script.updated_at
+    @scripts = @scripts.sort_by { |script| script.getTimeInSecs }
 
 
   end
