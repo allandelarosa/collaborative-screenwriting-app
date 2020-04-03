@@ -7,10 +7,11 @@ class ScriptsController < ApplicationController
   end
 
   def index
-    dummy_email = 'ajd2215' #this will be handled by session[] when user auth is up
-    @scripts = Script.for_user(dummy_email)
-    @scripts = @scripts.sort_by { |script| script.getTimeInSecs }
+    user_id = session[:user_id]
+    @scripts = Script.for_user(user_id)
+    #@time = Time.now() - @script.updated_at
 
+    @scripts = @scripts.sort_by { |script| script.getTimeInSecs }
 
   end
 
@@ -31,8 +32,8 @@ class ScriptsController < ApplicationController
   end
 
   def create
-    dummy_email = 'ajd2215'
-    @script = Script.add_new(script_params,dummy_email)
+    user_id = session[:user_id]
+    @script = Script.add_new(script_params,user_id)
     flash[:notice] = "#{@script.title} was succesfully created."
     redirect_to scripts_path
   end
