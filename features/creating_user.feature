@@ -11,6 +11,7 @@ Feature: create a new user
     When I enter the Username "Ryan"
     And I enter the Email "rp2496"
     And I enter the Password "potato"
+    # needed to add User because a problem with finding a name with spaces in it
     And I enter the User Password Confirmation "potato"
     And I click "Sign up"
     Then I should be on the scripts page

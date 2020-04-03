@@ -33,11 +33,18 @@ When /I click "(.*)"/ do |button|
     click_on button
 end
 
+When /I refresh the page/ do
+    page.refresh
+end
+
 When /I type "(.*)"/ do |text|
     # element = find('#editorjs').click
     #page.find('#test').native.send_keys(:left).perform
     # send_keys(element, "d")
-    (find('#editorjs').click).send_keys text
+
+    # there is some problem finding the correct div because they are rendered using js
+
+    (find('#editorjs').click).set text
 end
 
 Then /I should be on the (.*) page/ do |page|
