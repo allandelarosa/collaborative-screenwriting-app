@@ -1,6 +1,10 @@
+V0.2
+
+Changes:
+
 1) Saving script content
    -pressing save will persist the contents of the script
-   -update scripts table with last_edited whenever you save 
+   -update scripts table with last_edited whenever you save
 2) Users and authentication
     -user creation and login
     -prevent user craetion with existing email
@@ -9,7 +13,7 @@
     -each users has their own set of scripts
     -cannot see scripts from other users
 3) Cucumber Tests
-   - testing for user creation and login 
+   - testing for user creation and login
    - updated testing for dashboard features with users
 4) Dashboard Updates
    - Added last saved column
@@ -22,3 +26,7 @@
 7) Miscellaneous
    - added temporary logo
    - added temporary user profile picture
+
+Known Issues:
+    - cucumber test for editing script content still fails
+    - User dropdown options can be misleading on the home page

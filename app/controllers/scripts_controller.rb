@@ -48,7 +48,7 @@ class ScriptsController < ApplicationController
     @script = Script.find(params[:id])
     if params.has_key?(:from_js)
       print('123123123123123123123123123123123123')
-      @script.update!(last_edited:params[:last_edited])
+      @script.update!(last_edited:params[:last_edited],last_edited_full:params[:last_edited_full])
       print(params)
     else
       print(params)

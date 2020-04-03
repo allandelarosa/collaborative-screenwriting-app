@@ -39,14 +39,15 @@ async function save_file(e) {
 
                 // POST /script/:id/
                 let saved_on = new Date().formatMMDDYYYY()
+                let timeInSecs = new Date().getTime()
                 $.ajax({
                     type: "PUT",
                     url: scriptPath,
-                    data: { last_edited: saved_on, from_js: 1 },
+                    data: { last_edited_full: timeInSecs, last_edited: saved_on, from_js: 1 },
                     beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
                     success: function (data, textStatus, jqXHR) {
 
-                        alert("the file has been saved!")
+                        //alert("the file has been saved!")
                         console.log("script-update-passed")
                     },
                     error: function (jqXHR, textStatus, errorThrown) { console.log("script-update-failed") }
