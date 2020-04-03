@@ -1,23 +1,19 @@
 class ApplicationController < ActionController::Base
-    # need these macros to make methods available to views
-    # before_action :authorized # this runs before any other action is taken
-    # helper_method :current_user
-    # helper_method :logged_in?
+    # raises an exception for CSRF attacks?
+    protect_from_forgery with: :exception
+
+    # these make the methods visible to views
+    helper_method :current_user
 
     def create
         print("ddddd")
     end
 
-    # methods for user auth
-    # def current_user
-    #     User.find_by id: session[:user_id]
-    # end
+    def current_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
 
-    # def logged_in?
-    #     !current_user.nil?
-    # end
-
-    # def authorized
-    #     redirect_to '/' unless logged_in?
-    # end
+    def authorize
+        redirect_to '/login' unless current_user
+    end
 end

@@ -1,9 +1,0 @@
-%div.container
-
-    %h1 Welcome
-
-    -# - if logged_in?
-    -#     %h1="You are logged in, #{current_user.username}"
-
-    = button_to 'Login', '/login', :method => :get, :class => 'btn btn-light mybutton'
-    = button_to 'Signup', 'users/new', :method => :get, :class => 'btn btn-light mybutton'

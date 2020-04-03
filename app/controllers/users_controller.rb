@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # skip_before_action :authorized, only: [:new, :create]
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)

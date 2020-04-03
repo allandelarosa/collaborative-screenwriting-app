@@ -1,4 +1,7 @@
 class ScriptsController < ApplicationController
+  # requires user to be logged in to view any scripts
+  before_action :authorize
+
   def script_params
     params.require(:script).permit(:title, :author)
   end

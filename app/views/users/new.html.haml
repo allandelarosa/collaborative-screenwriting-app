@@ -6,14 +6,27 @@
 
         = label :user, :username, 'Username'
         = text_field :user, 'username'
+        %br
 
         = label :user, :email, 'Email'
         = text_field :user, 'email'
+        %br
 
         = label :user, :password, 'Password'
         = text_field :user, 'password'
+        %br
 
         = label :user, :password_confirmation, 'Password Confirmation'
         = text_field :user, 'password confirmation'
+        %br
 
         = submit_tag 'Sign up', :class => 'btn btn-primary'
+
+    %br
+    %h4 Already have an account?
+
+    = button_to 'Log In', '/login', :method => :get, :class => 'btn btn-primary'
+
+    %br
+    %br
+    = button_to 'Back to Home', '/', :method => :get, :class => 'btn btn-primary'
