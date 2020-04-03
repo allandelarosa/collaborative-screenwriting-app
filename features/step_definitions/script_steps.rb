@@ -8,7 +8,16 @@ Given /the following scripts exist/ do |scripts_table|
     end
 end
 
+Given /the following users exist/ do |users_table|
+    users_table.hashes.each do |user|
+        User.create! user
+    end
+end
+
 When /I enter the (.*) "(.*)"/ do |field, value|
+    if field.match?(" ")
+        field = field.downcase.tr(" ", "_")
+    end
     page.fill_in field, with:value
 end
 
@@ -36,6 +45,10 @@ Then /I should be on the (.*) page/ do |page|
     assert "/#{page}".eql? current_path
 end
 
-Then /(.*) seed movie[s]? should exist/ do |n_seeds|
+Then /(.*) seed script[s]? should exist/ do |n_seeds|
     Script.count.eql? n_seeds.to_i
+end
+
+Then /(.*) seed user[s]? should exist/ do |n_seeds|
+    User.count.eql? n_seeds.to_i
 end

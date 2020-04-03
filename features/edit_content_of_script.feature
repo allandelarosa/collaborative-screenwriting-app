@@ -4,7 +4,7 @@ Feature: edit content of script
         Given the following scripts exist:
             | title           | author | email   |
             | Fa and the Bois | Faboi  | ajd2215 |
-        Then 1 seed movie should exist
+        Then 1 seed script should exist
         Given I am on the scripts page
 
     Scenario: saving a line of text

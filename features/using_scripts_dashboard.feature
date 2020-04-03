@@ -8,7 +8,7 @@ Feature: keep and display a collection of scripts on a dashboard
     Given the following scripts exist:
       | title           | author | email   |
       | Fa and the Bois | Faboi  | ajd2215 |
-    Then 1 seed movie should exist
+    Then 1 seed script should exist
     Given I am on the scripts page
 
   Scenario: create a new script to work on
