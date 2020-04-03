@@ -10,18 +10,24 @@
 %div.container
 
   %h2 My Scripts
+
   %table#movies.table.table-striped.col-md-12
     %thead
       %tr
-        %th Title,
-        %th Author,
-        %th Edit
+        %th.col-sm-4 Title
+        %th.col-sm-4 Author
+        %th.col-sm-4 Last edited
+
+
     %tbody
       - @scripts.each do |script|
         %tr
-          %td= script.title
+          %td= link_to " #{script.title}", script_path(script)
           %td= script.author
-          %td= link_to "Edit #{script.title}", script_path(script)
+          %td= script.last_edited
+
+
+
 
   = link_to 'Add new script', new_script_path
 

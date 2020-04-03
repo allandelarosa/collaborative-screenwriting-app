@@ -16,9 +16,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_003013) do
     t.string "script_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "time"
-    t.text "blocks"
-    t.string "version"
+    t.text "json"
   end
 
   create_table "scripts", force: :cascade do |t|
