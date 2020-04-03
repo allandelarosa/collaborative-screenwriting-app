@@ -1,0 +1,26 @@
+%div.container
+
+    %h1 Login
+
+    = form_tag '/login' do
+
+        = label :session, :email, 'Email'
+        = text_field :session, 'email'
+        %br
+
+        = label :session, :password, 'Password'
+        = text_field :session, 'password'
+        %br
+
+        = submit_tag 'Login', :class => 'btn btn-primary'
+
+    %br
+    %h4 Don't have an account yet?
+
+    = button_to 'Sign up', '/signup', :method => :get, :class => 'btn btn-primary'
+
+    %br
+    %br
+
+    = button_to 'Back to Home', '/', :method => :get, :class => 'btn btn-primary'
+

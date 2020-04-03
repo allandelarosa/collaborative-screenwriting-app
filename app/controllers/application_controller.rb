@@ -1,5 +1,19 @@
 class ApplicationController < ActionController::Base
+    # raises an exception for CSRF attacks?
+    protect_from_forgery with: :exception
+
+    # these make the methods visible to views
+    helper_method :current_user
+
     def create
-    print("ddddd")
+        print("ddddd")
+    end
+
+    def current_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def authorize
+        redirect_to '/login' unless current_user
     end
 end

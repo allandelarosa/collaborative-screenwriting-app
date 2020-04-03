@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_191832) do
+ActiveRecord::Schema.define(version: 2020_04_03_003013) do
 
   create_table "documents", force: :cascade do |t|
     t.string "script_id"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2020_04_02_191832) do
     t.string "author"
     t.string "last_edited"
     t.string "email"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.string "password_digest"
   end
 
 end

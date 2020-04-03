@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 scripts = [
-    {title:'Poopoo', author:'Allan', email:'ajd2215'},
-    {title:'Doodoo', author:'Allan', email:'ajd2215'},
+    {title:'Hello', author:'Allan', email:'ajd2215'},
+    {title:'World', author:'Allan', email:'ajd2215'},
     {title:'Cat Boy', author:'Jami', email:'jjb2230'},
     {title:'Fa and the Bois', author:'Faboi', email:'faf6969'},
     {title:'The Settlers of Catan', author:'Ari', email:'ajt2222'},
