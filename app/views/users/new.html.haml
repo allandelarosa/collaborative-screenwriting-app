@@ -1,0 +1,19 @@
+%div.container
+
+    %h2 Sign Up
+
+    = form_tag users_path do
+
+        = label :user, :username, 'Username'
+        = text_field :user, 'username'
+
+        = label :user, :email, 'Email'
+        = text_field :user, 'email'
+
+        = label :user, :password, 'Password'
+        = text_field :user, 'password'
+
+        = label :user, :password_confirmation, 'Password Confirmation'
+        = text_field :user, 'password confirmation'
+
+        = submit_tag 'Sign up', :class => 'btn btn-primary'

@@ -1,0 +1,14 @@
+%div.container
+
+    %h1 Login
+
+    = form_tag '/login', :method => :put do
+
+        = label :user, :username, 'Username'
+        = text_field :user, 'username'
+
+        = label :user, :password, 'Password'
+        = text_field :user, 'password'
+
+        = submit_tag 'Login', :class => 'btn btn-primary'
+
