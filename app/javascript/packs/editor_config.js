@@ -47,7 +47,7 @@ async function save_file(e) {
                     beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
                     success: function (data, textStatus, jqXHR) {
 
-                        //alert("the file has been saved!")
+                        alert("the file has been saved!")
                         console.log("script-update-passed")
                     },
                     error: function (jqXHR, textStatus, errorThrown) { console.log("script-update-failed") }
