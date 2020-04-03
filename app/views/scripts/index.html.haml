@@ -14,9 +14,9 @@
   %table#movies.table.table-striped.col-md-12
     %thead
       %tr
-        %th.col-sm-4 Title
-        %th.col-sm-4 Author
-        %th.col-sm-4 Last edited
+        %th Title
+        %th Author
+        %th Last Saved
 
 
     %tbody
@@ -24,7 +24,8 @@
         %tr
           %td= link_to " #{script.title}", script_path(script)
           %td= script.author
-          %td= script.last_edited
+          %td= script.getTime
+
 
 
 

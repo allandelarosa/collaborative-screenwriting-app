@@ -11,6 +11,8 @@ class ScriptsController < ApplicationController
     @scripts = Script.for_user(user_id)
     #@time = Time.now() - @script.updated_at
 
+    @scripts = @scripts.sort_by { |script| script.getTimeInSecs }
+
   end
 
   def show

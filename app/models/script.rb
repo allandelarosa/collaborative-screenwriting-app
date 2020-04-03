@@ -7,7 +7,24 @@ class Script < ApplicationRecord
         Script.create!(script_params.merge({user_id:user_id}))
     end
 
-    def self.getTime
-        "0"
+    def getTime
+        secs = Time.now() - self.updated_at
+        ans = ""
+        time = ""
+        case secs
+        when 1..3599
+            ans = (secs/60).round()
+            time = "#{ans} minutes ago"
+        when 3600..86400
+            ans = (secs/60/60).round()
+            time = "#{ans} hours ago"
+        else
+            ans = self.last_edited
+        end
+        time
+    end
+
+    def getTimeInSecs
+        Time.now() - self.updated_at
     end
 end
