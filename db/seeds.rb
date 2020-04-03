@@ -15,7 +15,7 @@ users = [
 ]
 
 users.each do |user_params|
-    user = User.new user_params
+    user = User.new(user_params)
     user.save
 end
 
