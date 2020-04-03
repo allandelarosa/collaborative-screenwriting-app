@@ -1,4 +1,6 @@
 class DocumentsController < ApplicationController
+    # requires user to be logged in to view any scripts
+    before_action :authorize
 
     def create
         # print("\n\n")
