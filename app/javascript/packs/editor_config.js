@@ -1,6 +1,12 @@
 let pathname = window.location.pathname + "/documents/"
 let scriptPath = window.location.pathname
 
+Date.prototype.formatMMDDYYYY = function () {
+    return (this.getMonth() + 1) +
+        "/" + this.getDate() +
+        "/" + this.getFullYear();
+}
+
 
 async function ajax_test() {
 
@@ -32,7 +38,7 @@ async function save_file(e) {
 
 
                 // POST /script/:id/
-                let saved_on = new Date().toDateString()
+                let saved_on = new Date().formatMMDDYYYY()
                 $.ajax({
                     type: "PUT",
                     url: scriptPath,
