@@ -2,11 +2,23 @@
    -pressing save will persist the contents of the script
    -update scripts table with last_edited whenever you save 
 2) Users and authentication
+    -user creation and login
+    -prevent user craetion with existing email
+    -prevent users from accessing certain routes if not logged in
+    -user bypasses signup/login routes if already logged in
     -each users has their own set of scripts
+    -cannot see scripts from other users
 3) Cucumber Tests
-   - Users: creat acount, login, 
-   - Navigate: 
+   - testing for user creation and login 
+   - updated testing for dashboard features with users
 4) Dashboard Updates
    - Added last saved column
    - Documents sort by last saved
-
+5) Scripts Updates
+   - changed scripts to be associated to current user rather than dummy emails
+6) Navigation bar
+   - created nav bar for dashboard, editor and welcome page
+   - merged some elements of editor toolbar into navbar
+7) Miscellaneous
+   - added temporary logo
+   - added temporary user profile picture
