@@ -1,4 +1,5 @@
 let pathname = window.location.pathname + "/documents/"
+let scriptPath = window.location.pathname
 
 
 async function ajax_test() {
@@ -26,8 +27,29 @@ async function save_file(e) {
             url: pathname,
             data: { json: outputData },
             beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
-            success: function (data, textStatus, jqXHR) { console.log("yep") },
-            error: function (jqXHR, textStatus, errorThrown) { console.log("nope") }
+            success: function (data, textStatus, jqXHR) {
+                //if the document saved, updated the script's last_edited
+
+
+                // POST /script/:id/
+                let saved_on = new Date().toDateString()
+                $.ajax({
+                    type: "PUT",
+                    url: scriptPath,
+                    data: { last_edited: saved_on, from_js: 1 },
+                    beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
+                    success: function (data, textStatus, jqXHR) {
+
+
+                        console.log("script-update-passed")
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) { console.log("script-update-failed") }
+                })
+
+
+                console.log("document-save-passed")
+            },
+            error: function (jqXHR, textStatus, errorThrown) { console.log("document-save-failed") }
         })
     }).catch((error) => {
         console.log('Saving failed: ', error)
