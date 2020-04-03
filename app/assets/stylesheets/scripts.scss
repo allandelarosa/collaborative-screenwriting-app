@@ -22,12 +22,17 @@ body {
 }
 
 .editor_title_bar {
-    background: rgb(44,59,72);
+    // background: rgb(44,59,72);
+    // background: #292b2c;
     width: 100%;
     color: white;
-    padding: 5px 40px 20px 40px;
+    //padding: 5px 40px 20px 40px;
     border-bottom: solid black;
+    // border-top: solid black;
     border-width: 1px;
+    height: auto;
+    display:block;
+    overflow:auto;
 }
 
 #editorjs {
