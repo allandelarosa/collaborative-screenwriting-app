@@ -42,7 +42,7 @@ When /I type "(.*)"/ do |text|
     #page.find('#test').native.send_keys(:left).perform
     # send_keys(element, "d")
 
-    # there is some problem finding the correct div because they are rendered using js
+    # there is some problem finding the correct div
 
     (find('#editorjs').click).set text
 end
