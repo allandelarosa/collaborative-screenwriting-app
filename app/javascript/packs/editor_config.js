@@ -101,7 +101,8 @@ $.ajax({
 
 
         } else {
-
+            console.log(data)
+            console.log("========")
             let eData = data
             delete eData.script_id
             delete eData.id
@@ -116,9 +117,11 @@ $.ajax({
             console.log(typeof dataobject)
             console.log(dataobject.blocks)
             let blocks = []
-            for (let [x, y] of Object.entries(dataobject.blocks)) {
-                console.log(x, y)
-                blocks.push(y)
+            if (dataobject.blocks) {
+                for (let [x, y] of Object.entries(dataobject.blocks)) {
+                    console.log(x, y)
+                    blocks.push(y)
+                }
             }
             console.log(blocks)
             delete dataobject.blocks
