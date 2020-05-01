@@ -19,7 +19,9 @@ class Script < ApplicationRecord
             ans = (secs/60/60).round()
             time = "#{ans} hours ago"
         else
+            # print('in here')
             ans = self.last_edited
+            time = ans
         end
         time
     end
