@@ -1,5 +1,13 @@
-let pathname = window.location.pathname + "/documents/"
-let scriptPath = window.location.pathname
+
+let base = window.location.pathname
+// let pathname = window.location.pathname + "/documents/"
+// let scriptPath = window.location.pathname
+
+let pathname = base.substring(0, (base.length - "/editor/documents/".length) + 1) + "/documents/"
+let scriptPath = base.substring(0, (base.length - "/editor/documents/".length + 1))
+
+console.log(pathname)
+console.log(scriptPath)
 
 Date.prototype.formatMMDDYYYY = function () {
     return (this.getMonth() + 1) +
@@ -64,10 +72,27 @@ async function save_file(e) {
 }
 
 
-document.getElementById('save_file').addEventListener('click', function (e) {
-    e.preventDefault()
-    save_file()
-})
+// document.getElementById('save_file').addEventListener('click', function (e) {
+//     e.preventDefault()
+//     save_file()
+// })
+
+// document.addEventListener('keypress', save_file);
+
+function logKey(e) {
+
+    console.log('hey re')
+}
+
+var timer = null;
+$('#editorjs').keydown(function () {
+    clearTimeout(timer);
+    timer = setTimeout(save_file, 1000)
+});
+
+function doStuff() {
+    alert('do stuff');
+}
 
 let editor;
 
