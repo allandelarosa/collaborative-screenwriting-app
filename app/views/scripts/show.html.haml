@@ -5,35 +5,41 @@
     %script{src: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js", integrity: "sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm", crossorigin: "anonymous"}
     = javascript_include_tag "https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"
     = javascript_include_tag "https://cdn.jsdelivr.net/npm/@editorjs/header@latest"
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  %a.navbar-brand{href:"/"}
-    %img.navbar_image.navbar-brand{src:'https://i.imgur.com/gnwSLFk.png',width:'120px'}
-  %span.mr-auto
-    %h1.text-light=@script.title
-    %h6.text-light="By: #{@script.author}"
-  -# %h6.text-light.mr-right My Documents
-  %div{id:"navbar-list-4"}
-    %ul.navbar-nav
-      %li.nav-item.dropleft
-        %a.nav-link.dropdown-toggle{href:"#",id:"navbarDropdownMenuLink",role:"button","data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"true"}
-          %img.rounded-circle{src:'https://i.imgur.com/HM6q2Yr.jpg',width:'60px',height:'60px'}
-        %div.dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-          %a.dropdown-item{href:"/scripts"} Dashboard
-          %a.dropdown-item{href:"/logout"} Log Out
-
-
-
-%section.editor_container
-  %div.editor_title_bar.bg-dark
-
+%div.main
+  %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mynav
+    %a.navbar-brand{href:"/"}
+      %img.navbar_image.navbar-brand{src:'https://i.imgur.com/gnwSLFk.png',width:'120px'}
+    %span.mr-auto
+      %h1.text-light=@script.title
+      %h6.text-light="By: #{@script.author}"
+    -# %h6.text-light.mr-right My Documents
     = button_to 'Edit', edit_script_path(@script),:method => :get, :class => 'btn btn-light mybutton'
     = button_to 'Delete', script_path(@script),:method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-light mybutton'
     = button_to 'Back', scripts_path, :method => :get, :class => 'btn btn-light mybutton'
-    = button_to "Save", "", :id => "save_file", :class => 'btn btn-light mybutton'
-  %br
-  %section.editor_parent
-    %section.editor_component{:id => "editorjs"}
-  -#%a{href: '', onclick: 'save_file(); return false;'} my link
-  -# :javascript
-  -#     var author = #{@script.author}
-= javascript_pack_tag 'editor_config'
+    %div{id:"navbar-list-4"}
+      %ul.navbar-nav
+        %li.nav-item.dropleft
+          %a.nav-link.dropdown-toggle{href:"#",id:"navbarDropdownMenuLink",role:"button","data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"true"}
+            %img.rounded-circle{src:'https://i.imgur.com/HM6q2Yr.jpg',width:'60px',height:'60px'}
+          %div.dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+            %a.dropdown-item{href:"/scripts"} Dashboard
+            %a.dropdown-item{href:"/logout"} Log Out
+
+
+
+  %section.editor_container
+    -# %div.editor_title_bar.bg-dark
+
+    -#   = button_to 'Edit', edit_script_path(@script),:method => :get, :class => 'btn btn-light mybutton'
+    -#   = button_to 'Delete', script_path(@script),:method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-light mybutton'
+    -#   = button_to 'Back', scripts_path, :method => :get, :class => 'btn btn-light mybutton'
+      -# = button_to "Save", "", :id => "save_file", :class => 'btn btn-light mybutton'
+    %br
+    %section.editor_parent
+      -# %section.editor_component{:id => "editorjs"}
+      %iframe.editor_component{:id => "editorjs-iframe", :src => editor_script_documents_path(params[:id])}
+      -# %h6="By: #{editor_script_documents_path(params[:id])}"
+    -#%a{href: '', onclick: 'save_file(); return false;'} my link
+    -# :javascript
+    -#     var author = #{@script.author}
+  -# = javascript_pack_tag 'editor_config'
