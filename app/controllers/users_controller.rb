@@ -11,19 +11,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    if user_params[:username].empty? or user_params[:password].empty?
-      flash[:notice] = "Invalid username or password."
-      redirect_to '/signup'
-    elsif !user_params[:email].match /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/
+    if !user_params[:email].match /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/
       flash[:notice] = "Please enter a valid email address."
       redirect_to '/signup'
     elsif !User.find_by_email(user_params[:email]).nil?
       flash[:notice] = "A user with that email already exists."
       redirect_to '/signup'
+    elsif user_params[:password].empty?
+      flash[:notice] = "Please enter a password."
+      redirect_to '/signup'
     elsif user_params[:password] != user_params[:password_confirmation]
       flash[:notice] = "Password and confirmation do not match."
       redirect_to '/signup'
     else
+      user_params[:username] = user_params[:email]
       @user = User.new(user_params)
 
       if @user.save
