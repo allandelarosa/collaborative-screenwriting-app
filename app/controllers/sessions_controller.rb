@@ -16,11 +16,11 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(session_params[:password])
       # username and password match
       session[:user_id] = @user.id
-      flash[:notice] = "#{@user.username} logged in."
+      flash[:notice] = "#{@user.email} logged in."
       redirect_to scripts_path
     else
       # login failure
-      flash[:notice] = "Invalid username or password."
+      flash[:notice] = "Invalid email or password."
       redirect_to '/login'
     end
   end

@@ -4,20 +4,17 @@
 
     = form_tag users_path do
 
-        = label :user, :username, 'Username'
-        = text_field :user, 'username'
-        %br
-
         = label :user, :email, 'Email'
         = text_field :user, 'email'
         %br
 
+        -# password_field is the same text_field, but you can't see the input
         = label :user, :password, 'Password'
-        = text_field :user, 'password'
+        = password_field :user, 'password'
         %br
 
         = label :user, :password_confirmation, 'Password Confirmation'
-        = text_field :user, 'password_confirmation'
+        = password_field :user, 'password_confirmation'
         %br
 
         = submit_tag 'Sign up', :class => 'btn btn-primary'
