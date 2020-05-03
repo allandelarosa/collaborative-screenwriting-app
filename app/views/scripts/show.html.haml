@@ -10,10 +10,9 @@
     %a.navbar-brand{href:"/"}
       %img.navbar_image.navbar-brand{src:'https://i.imgur.com/gnwSLFk.png',width:'120px'}
     %span.mr-auto
-      %h1.text-light=@script.title
-      %h6.text-light="By: #{@script.author}"
+      %h1#script_title.text-light{contenteditable:'true'}=@script.title
+      %h6#script_author.text-light{contenteditable:'true'}="By: #{@script.author}"
     -# %h6.text-light.mr-right My Documents
-    = button_to 'Edit', edit_script_path(@script),:method => :get, :class => 'btn btn-light mybutton'
     = button_to 'Delete', script_path(@script),:method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-light mybutton'
     = button_to 'Back', scripts_path, :method => :get, :class => 'btn btn-light mybutton'
     %div{id:"navbar-list-4"}
@@ -43,3 +42,4 @@
     -# :javascript
     -#     var author = #{@script.author}
   -# = javascript_pack_tag 'editor_config'
+  = javascript_pack_tag 'script_save'
