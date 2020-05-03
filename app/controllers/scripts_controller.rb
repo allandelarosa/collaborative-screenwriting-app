@@ -28,14 +28,20 @@ class ScriptsController < ApplicationController
   end
 
   def new
-    # renders new template
+    # create a default script instead of taking you to a new view
+    redirect_to create_script_path
   end
 
   def create
     user_id = session[:user_id]
-    @script = Script.add_new(script_params,user_id)
+    author = User.find_by_id(user_id).email
+    
+    # default script called "untitled"  with author as your email
+    @script = Script.add_new({title:"Untitled", author:author},user_id)
     flash[:notice] = "#{@script.title} was succesfully created."
-    redirect_to scripts_path
+
+    # immediately take you to editor, rather than dashboard
+    redirect_to script_path(@script)
   end
 
   def edit
@@ -50,12 +56,19 @@ class ScriptsController < ApplicationController
       print('123123123123123123123123123123123123')
       @script.update!(last_edited:params[:last_edited],last_edited_full:params[:last_edited_full])
       print(params)
+    elsif params.has_key?(:save_script)
+      # only update title and author if nonempty strings
+      script_title = params[:title].empty? ? @script.title : params[:title]
+      script_author = params[:author].empty? ? @script.author : params[:author]
+      @script.update!(title:script_title,author:script_author)
     else
-      print(params)
-      print(params[:id])
-      @script.update_attributes!(script_params)
-      flash[:notice] = "#{@script.title} was successfully updated."
-      redirect_to script_path(@script)
+      # obsolete, now that the button is removed
+
+      # print(params)
+      # print(params[:id])
+      # @script.update_attributes!(script_params)
+      # flash[:notice] = "#{@script.title} was successfully updated."
+      # redirect_to script_path(@script)
     end
   end
 
