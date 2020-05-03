@@ -28,14 +28,20 @@ class ScriptsController < ApplicationController
   end
 
   def new
-    # renders new template
+    # create a default script instead of taking you to a new view
+    redirect_to create_script_path
   end
 
   def create
     user_id = session[:user_id]
-    @script = Script.add_new(script_params,user_id)
+    author = User.find_by_id(user_id).email
+    
+    # default script called "untitled"  with author as your email
+    @script = Script.add_new({title:"Untitled", author:author},user_id)
     flash[:notice] = "#{@script.title} was succesfully created."
-    redirect_to scripts_path
+
+    # immediately take you to editor, rather than dashboard
+    redirect_to script_path(@script)
   end
 
   def edit

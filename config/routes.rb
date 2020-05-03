@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
-
+  # for new script
+  get 'create_script', to: 'scripts#create', as: :create_script
 
   # for user auth
   get '/login' => 'sessions#new'
