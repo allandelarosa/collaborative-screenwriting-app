@@ -30,5 +30,5 @@ async function save_script(e) {
 var timer = null;
 $('#script_title,#script_author').keydown(function () {
     clearTimeout(timer);
-    timer = setTimeout(save_script, 2000)
+    timer = setTimeout(save_script, 1000)
 });
