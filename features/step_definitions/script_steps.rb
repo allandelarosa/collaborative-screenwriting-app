@@ -37,6 +37,11 @@ When /I refresh the page/ do
     page.refresh
 end
 
+When /I Log Out/ do
+    find('#navbar-list-4').click
+    click_on "Log Out"
+end
+
 When /I type "(.*)"/ do |text|
     # element = find('#editorjs').click
     #page.find('#test').native.send_keys(:left).perform
