@@ -30,6 +30,7 @@ Feature: keep and display a collection of scripts on a dashboard
     And I should see "Untitled"
     And I should see "rp2496@columbia.edu"
 
+  # test fails because of incompatability with javascript
   Scenario: change name and author of a script
     # When I click "New Script"
     # And I change the "Script Title" to "Story Name"
