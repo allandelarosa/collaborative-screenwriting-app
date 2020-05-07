@@ -10,14 +10,20 @@ Feature: log in to existing account
     And I Log Out
     Then I should be on the login page
 
-  Scenario: log back in
-    When I enter the Email "rp2496@columbia.edu"
+  Scenario: prevent log in with invalid email
+    When I enter the Email "rp2496@columbia.com"
     And I enter the Password "potato"
     And I click "Log In"
-    Then I should be on the scripts page
+    Then I should be on the login page
 
   Scenario: prevent log in with wrong password
     When I enter the Email "rp2496@columbia.edu"
     And I enter the Password "not potato"
     And I click "Log In"
     Then I should be on the login page
+
+  Scenario: log in successfully
+    When I enter the Email "rp2496@columbia.edu"
+    And I enter the Password "potato"
+    And I click "Log In"
+    Then I should be on the scripts page
