@@ -33,8 +33,9 @@ When /I click "(.*)"/ do |button|
     click_on button
 end
 
-When /I refresh the page/ do
-    page.refresh
+When /I Log Out/ do
+    find('#navbar-list-4').click
+    click_on "Log Out"
 end
 
 When /I type "(.*)"/ do |text|
@@ -49,7 +50,11 @@ end
 
 Then /I should be on the (.*) page/ do |page|
     current_path = URI.parse(current_url).path
-    assert "/#{page}".eql? current_path
+    if page.eql? "editor"
+        assert current_path.match? /\/scripts\/[0-9]+/
+    else
+        assert "/#{page}".eql? current_path
+    end
 end
 
 Then /(.*) seed script[s]? should exist/ do |n_seeds|
@@ -58,4 +63,14 @@ end
 
 Then /(.*) seed user[s]? should exist/ do |n_seeds|
     User.count.eql? n_seeds.to_i
+end
+
+When /I change the (.*) to (.*)/ do |field, value|
+    if field.match?(" ")
+        field = field.downcase.tr(" ", "_").tr("\"", "")
+    end
+    css = "##{field}"
+    find(css).set value
+    # takes 1 sec to save these fields
+    sleep 1
 end
