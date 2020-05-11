@@ -6,6 +6,12 @@
 
 Rails version: Rails 6.0.2.1. Ruby version: ruby 2.7.0p0
 
+# How to run code
+- Clone the github repository
+- Install the correct ruby/rails versions
+- Install the correct dependencies on Gemfile
+- Run with "rails s"
+
 # Using the app
 - First, create an account by pressing on the icon on the top right and clicking on "Sign up" or hitting the "Try it out" button.
 - Fill in your information and create an account.
