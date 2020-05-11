@@ -1,7 +1,7 @@
 Rails version: Rails 6.0.2.1
 Ruby version: ruby 2.7.0p0
 
-Deployed website: sw.bunge.io
+Deployed website: https://sw.bunge.io
 
 # Using the app
 - First, create an account by pressing on the icon on the top right and clicking on "Sign up" or hitting the "Try it out" button.
