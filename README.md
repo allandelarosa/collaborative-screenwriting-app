@@ -15,4 +15,8 @@ Rails version: Rails 6.0.2.1. Ruby version: ruby 2.7.0p0
 
 
 
-Note: The collaborative aspect of this project is still in development
+Note: The ability to save the files as a pdf and the collaborative aspect of this project are still in development
+
+
+Example Script:
+![Example Script](https://i.imgur.com/uyodirm.png)
