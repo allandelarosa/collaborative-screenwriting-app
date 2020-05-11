@@ -1,5 +1,7 @@
 Code base: https://github.com/allandelarosa/collaborative-screenwriting-app
+
 Deployed website: https://sw.bunge.io
+
 Pitch video: https://www.youtube.com/watch?v=PJcHqKJzhJs
 
 Rails version: Rails 6.0.2.1
