@@ -1,11 +1,10 @@
-Code base: https://github.com/allandelarosa/collaborative-screenwriting-app
+- Code base: https://github.com/allandelarosa/collaborative-screenwriting-app
 
-Deployed website: https://sw.bunge.io
+- Deployed website: https://sw.bunge.io
 
-Pitch video: https://www.youtube.com/watch?v=PJcHqKJzhJs
+- Pitch video: https://www.youtube.com/watch?v=PJcHqKJzhJs
 
-Rails version: Rails 6.0.2.1
-Ruby version: ruby 2.7.0p0
+Rails version: Rails 6.0.2.1. Ruby version: ruby 2.7.0p0
 
 # Using the app
 - First, create an account by pressing on the icon on the top right and clicking on "Sign up" or hitting the "Try it out" button.
