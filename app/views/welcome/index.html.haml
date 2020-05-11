@@ -15,11 +15,13 @@
           %img.rounded-circle{src:'https://i.imgur.com/HM6q2Yr.jpg',width:'60px',height:'60px'}
         %div.dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
           %a.dropdown-item{href:"/login"} Login
+          %a.dropdown-item{href:"/signup"} Sign up
 
 
 
-%div.container
-  %h1 ScriptWriter++®
-  %h4 A  Collaborative Screenplay Writing App
-  %br
-  = button_to 'Try it out!', '/signup', :method => :get, :class => "btn btn-dark"
+%div.landing_container
+  %div.bigbox
+    %div.to_button
+      = button_to 'Try it out!', '/signup', :method => :get, :class => "btn btn-dark"
+  %div.readme
+  
