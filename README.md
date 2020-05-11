@@ -19,4 +19,4 @@ Note: The ability to save the files as a pdf and the collaborative aspect of thi
 
 
 Example Script:
-![Example Script](https://i.imgur.com/uyodirm.png)
+![Example Script](https://i.imgur.com/01toz2k.png)
