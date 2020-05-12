@@ -1,6 +1,6 @@
 - Code base: https://github.com/allandelarosa/collaborative-screenwriting-app
 
-- Deployed website: https://sw.bunge.io
+- Deployed website: http://sw.bunge.io
 
 - Pitch video: https://www.youtube.com/watch?v=PJcHqKJzhJs
 
